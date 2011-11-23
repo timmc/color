@@ -1,0 +1,13 @@
+# color
+
+Color manipulation library written in Clojure.
+
+## Usage
+
+Maven identifier: org.timmc/color
+
+## License
+
+Copyright (C) 2011 Tim McCormack
+
+The Clojure core library  is distributed under the Eclipse Public License.
