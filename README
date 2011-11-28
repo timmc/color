@@ -2,9 +2,7 @@
 
 Color manipulation library written in Clojure.
 
-## Usage
-
-Maven identifier: org.timmc/color
+Not ready for use. Algorithms have not been tested against standards yet.
 
 ## License
 

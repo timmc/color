@@ -23,6 +23,7 @@
       hi
       x)))
 
+;; TODO: This seems to be wrong...
 (defn lch->rgb
   "Given luma and chroma in [0,1] and hue [0,1), return [r g b] each in [0,1].
 Luma and chroma will be bounded to their range, while hue will be modulo'd."
