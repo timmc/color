@@ -24,7 +24,7 @@
 
 ;;;; Tests
 
-(deftest utils
+(deftest util-spread
   (is (= (spread 0)
          []))
   (is (= (map (comp int #(* % 2)) (spread 1))
@@ -33,3 +33,21 @@
     (is (= (first spread4int) 0))
     (is (= (map set (partition-doubling (rest spread4int)))
            [#{8} #{4 12} #{2 6 10 14} #{1 3 5 7 9 11 13 15}]))))
+
+(deftest util-bound
+  (is (= (bound 0 1 500) 1))
+  (is (= (bound 0 1 0.5) 0.5))
+  (is (= (bound 0 1 -50) 0)))
+
+(deftest conversions
+  ;; extrema
+  (is (= (lch->rgb 0 0 42.17) (map double [0 0 0])))
+  (is (= (lch->rgb 1 0 42.17) (map double [1 1 1])))
+  ;; FIXME: This is just a reasonable observed value, not a theoretical result
+  (are [h r g b] (= (map (comp int (partial * 255))
+                         (lch->rgb 0.5 1 h))
+                    [r g b])
+       0/3 255  51  51
+       1/3   0 232   0
+       2/3  99  99 255))
+
